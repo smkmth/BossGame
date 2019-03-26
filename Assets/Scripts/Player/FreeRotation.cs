@@ -26,12 +26,12 @@ public class FreeRotation : MonoBehaviour
     {
         if (FreeLook)
         {
-            if (Input.GetAxis("HorizontalCamera") != 0)
+            if (Input.GetAxis("Mouse X") != 0)
             {
                 rot = Mathf.Lerp(StartRotateSpeed, MaxRotateSpeed, Step * Time.deltaTime);
             }
         }
 
-        transform.Rotate(0, rot * Input.GetAxis("HorizontalCamera"), 0);
+        transform.Rotate(0, rot * Input.GetAxis("Mouse X"), 0);
     }
 }
