@@ -103,7 +103,11 @@ public class Pathfinder : MonoBehaviour {
             foreach (Node neighbor in currentNode.connections)
             {
                 //if the neighbor is in the closed list we have already delt with it.
-                if (closedList.Contains(neighbor) || neighbor.walkable == false)
+                
+              
+              
+                //if (closedList.Contains(neighbor) || neighbor.walkable == false)
+                if (neighbor.walkable == false || closedList.IndexOf(neighbor) != -1)
                 {
                     continue;
                 }
@@ -113,6 +117,7 @@ public class Pathfinder : MonoBehaviour {
                 float newMovementCost = currentNode.Gcost + GetDistance(currentNode, neighbor);
 
                 //if it is better then the neighbor gcost then use it. if it is not in the open list, add it to the open list
+                //if (newMovementCost < neighbor.Gcost || openList.IndexOf(neighbor) == -1)
                 if (newMovementCost < neighbor.Gcost || !openList.Contains(neighbor))
                 {
                     //we now set the g cost of the neighbor, which is how quickly i can get to the neigbor node

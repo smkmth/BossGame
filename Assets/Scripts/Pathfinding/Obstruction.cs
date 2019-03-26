@@ -25,7 +25,7 @@ public class Obstruction : MonoBehaviour {
 
         }
 
-        Vector2 bounds = GetComponent<BoxCollider>().bounds.size * 1.01f;
+        Vector3 bounds = GetComponent<BoxCollider>().bounds.size;
 
         //Vector2 bounds = new Vector2(30, 30);
 

@@ -56,12 +56,15 @@ public class VerticalAndHorizontalMovement : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") != 0)
         {
-            rb.AddForce(movepos + transform.forward * Input.GetAxis("Vertical") * MovementSpeed);
+            //rb.AddForce(movepos + transform.forward * Input.GetAxis("Vertical") * MovementSpeed);
+            transform.position += movepos + transform.forward * Input.GetAxis("Vertical") * MovementSpeed * Time.deltaTime;
 
         }
         if (Input.GetAxis("Horizontal") != 0)
         {
-            rb.AddForce(movepos + transform.right * Input.GetAxis("Horizontal") * MovementSpeed);
+            //rb.AddForce(movepos + transform.right * Input.GetAxis("Horizontal") * MovementSpeed);
+            transform.position += movepos + transform.right * Input.GetAxis("Horizontal") * MovementSpeed * Time.deltaTime;
+
         }
         //same logic for movement but applied veritcally. the get button down returns true 
         //when a button is pressed and released. 

@@ -27,7 +27,6 @@ public class Patrol : MonoBehaviour
                 break;
             case Movestate.Finished:
                 break;
-
             case Movestate.Moving:
                 break;
             case Movestate.TargetGiven:
