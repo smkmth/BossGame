@@ -39,7 +39,7 @@ public class PathMovement : MonoBehaviour {
         pathfinder = GameObject.Find("Pathfinder").GetComponent<Pathfinder>();
         
         targetListIndex = 0;
-        currentMovestate = Movestate.Waiting;
+        currentMovestate = Movestate.Error;
 	}
 
     public void SetDestination(Vector3 worldPoint)
@@ -82,7 +82,7 @@ public class PathMovement : MonoBehaviour {
         //if we have a path, we move our transfrom towards the taget at a speed. else, we either increment 
         //the targetListIndex to the next target node, or we are finished, and awaiting orders.  this is only 
         //called once we have a valid path passed to us from the setpath function
-        if (currentMovestate != Movestate.Error)
+        if (currentMovestate != Movestate.Error || currentMovestate != Movestate.Finished)
         {
 
             distance = Vector3.Distance(transform.position, targetNodeList[targetListIndex].location.position);
@@ -91,16 +91,14 @@ public class PathMovement : MonoBehaviour {
                 float step = movespeed * Time.deltaTime;
                 Vector3 mov = Vector3.MoveTowards(transform.position, targetNodeList[targetListIndex].location.position, step);
                 transform.position = mov;
-                currentMovestate = Movestate.Moving;
 
             }
             else
             {
-                currentMovestate = Movestate.Finished;
                 if (targetListIndex >= (targetNodeList.Count - 1))
                 {
+                    currentMovestate = Movestate.Finished;
                     targetListIndex = 0;
-                    currentMovestate = Movestate.Waiting;
                 }
                 else
                 {
