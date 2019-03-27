@@ -53,6 +53,7 @@ public class Node : MonoBehaviour {
         }
     }
     public bool walkable;
+    public bool onclosedList;
 
 
     // Use this for initialization
@@ -154,6 +155,7 @@ public class Node : MonoBehaviour {
         previous = this;
         Hcost = 0;
         Gcost = 0;
+        onclosedList = false;
 
     }
 }

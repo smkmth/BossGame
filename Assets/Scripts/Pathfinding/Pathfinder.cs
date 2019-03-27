@@ -90,11 +90,18 @@ public class Pathfinder : MonoBehaviour {
 
             //we are now checking this node so take it from the open list and dump it in the closed list
             openList.Remove(currentNode);
+            currentNode.onclosedList = true;
             closedList.Add(currentNode);
 
             //if its the final node, we are done!
             if (currentNode == endnode)
-            {
+            { 
+                foreach (Node node in closedList)
+                {
+                    node.onclosedList = false;
+                }
+                closedList.Clear();
+                openList.Clear();
                 return CalculatePath(startnode, endnode);
                 
             }
@@ -107,7 +114,7 @@ public class Pathfinder : MonoBehaviour {
               
               
                 //if (closedList.Contains(neighbor) || neighbor.walkable == false)
-                if (neighbor.walkable == false || closedList.IndexOf(neighbor) != -1)
+                if (neighbor.walkable == false || neighbor.onclosedList == true)
                 {
                     continue;
                 }
@@ -143,13 +150,13 @@ public class Pathfinder : MonoBehaviour {
         {
             
             Debug.Log("Cant solve");
+            foreach (Node node in closedList)
+            {
+                node.onclosedList = false;
+            }
             closedList.Clear();
             openList.Clear();
 
-            foreach (Node node in Nodes)
-            {
-                node.ClearNode();
-            }
 
         }
         return path;
@@ -174,7 +181,7 @@ public class Pathfinder : MonoBehaviour {
         
         path.Reverse();
             
-        foreach(Node node in path)
+        foreach(Node node in Nodes)
         {
             node.ClearNode();
         }
