@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 4
-  AirMovementSpeed: 0
+  AirMovementSpeed: 1
   JumpForce: 100
   DistanceToGround: 0.2
 --- !u!54 &693509122
@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693509119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: -2, z: -3.06}
+  m_LocalPosition: {x: 10.97, y: -0.47, z: -4.84}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 534669905}
@@ -1128,7 +1128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820900959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.3, y: -2.66, z: -5.1}
+  m_LocalPosition: {x: 8.16, y: -2.66, z: -4.57}
   m_LocalScale: {x: 8.84, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1655,7 +1655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878492470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.36775, y: -2.66, z: 4.63}
+  m_LocalPosition: {x: -4.57, y: -2.66, z: 4.69}
   m_LocalScale: {x: 8.84, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1760,7 +1760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131870401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.68, y: -2.66, z: -0.3}
+  m_LocalPosition: {x: 1.59, y: -2.66, z: -0.5}
   m_LocalScale: {x: 2.2, y: 1.17, z: 7.66}
   m_Children: []
   m_Father: {fileID: 0}
