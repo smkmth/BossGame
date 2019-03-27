@@ -216,7 +216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatrolPoints: []
+  Player: {fileID: 0}
   targetIndex: 0
+  timer: 0
+  RePathRate: 0
 --- !u!114 &230260013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523155749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.64, y: -3, z: -3}
+  m_LocalPosition: {x: 0.01, y: -3, z: 12.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -551,7 +554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555861517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.58, y: -1.53, z: -0.03}
+  m_LocalPosition: {x: 15.57, y: -1.53, z: 11.5}
   m_LocalScale: {x: 1.13, y: 1.09, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -605,7 +608,10 @@ MonoBehaviour:
   - {fileID: 523155750}
   - {fileID: 258349609}
   - {fileID: 710188523}
+  Player: {fileID: 693509126}
   targetIndex: 0
+  timer: 0
+  RePathRate: 0.1
 --- !u!1 &640864919
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693509119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: -2, z: -3.06}
+  m_LocalPosition: {x: -7.8, y: -2.69, z: -3.6}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 534669905}
@@ -1304,7 +1310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatrolPoints: []
+  Player: {fileID: 0}
   targetIndex: 0
+  timer: 0
+  RePathRate: 0
 --- !u!114 &1352212557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,9 +1534,9 @@ MonoBehaviour:
     type: 3}
   gridsizeX: 50
   gridsizeZ: 50
-  nodeRad: 1
+  nodeRad: 0.5
   WallAvoidDistance: 0.1
-  NodeRadiusToCheck: 2.25
+  NodeRadiusToCheck: 2.5
 --- !u!114 &1623593852
 MonoBehaviour:
   m_ObjectHideFlags: 0
