@@ -11,7 +11,7 @@ public class Pathfinder : MonoBehaviour {
 
     //A list of nodes for the pathfinder to navigate
     public List<Node> Nodes;
-    
+    public bool NoSolution;
     public Node currentclosest;
 
     private Node currentNode; 
@@ -61,6 +61,7 @@ public class Pathfinder : MonoBehaviour {
     
     public List<Node> PathFind(Vector3 start, Vector3 end)
     {
+        NoSolution = false;
         //init variables i will need
         Node startnode = GetClosestNode(start);
         Node endnode = GetClosestNode(end);
@@ -148,8 +149,9 @@ public class Pathfinder : MonoBehaviour {
         //if we get here, the node is impossible to reach! we simply reset the nodes and return a null path. 
         if (openList.Count == 0)
         {
-            
-            Debug.Log("Cant solve");
+
+            NoSolution = true;
+
             foreach (Node node in closedList)
             {
                 node.onclosedList = false;

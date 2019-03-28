@@ -220,6 +220,8 @@ MonoBehaviour:
   targetIndex: 0
   timer: 0
   RePathRate: 0
+  ErrorRePathRate: 0
+  currentAIState: 0
 --- !u!114 &230260013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555861517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.57, y: -1.53, z: 11.5}
+  m_LocalPosition: {x: 15.57, y: 0.495, z: 11.5}
   m_LocalScale: {x: 1.13, y: 1.09, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -590,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMovestate: 0
   movespeed: 10
-  fudgeDistance: 1
+  fudgeDistance: 0.5
   patrolPoint: {fileID: 523155750}
 --- !u!114 &555861524
 MonoBehaviour:
@@ -612,6 +614,8 @@ MonoBehaviour:
   targetIndex: 0
   timer: 0
   RePathRate: 0.1
+  ErrorRePathRate: 1
+  currentAIState: 0
 --- !u!1 &640864919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1318,8 @@ MonoBehaviour:
   targetIndex: 0
   timer: 0
   RePathRate: 0
+  ErrorRePathRate: 0
+  currentAIState: 0
 --- !u!114 &1352212557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,6 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nodes: []
+  NoSolution: 0
   currentclosest: {fileID: 0}
 --- !u!4 &1623593853
 Transform:

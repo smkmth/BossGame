@@ -27,7 +27,7 @@ public class PathMovement : MonoBehaviour {
     private List<Node> targetNodeList;
     private int targetListIndex;
     private float distance;
-
+    private Vector3 Destination;
     public Transform patrolPoint;
     
     //a ref to our pathfinder 
@@ -39,14 +39,23 @@ public class PathMovement : MonoBehaviour {
         pathfinder = GameObject.Find("Pathfinder").GetComponent<Pathfinder>();
         
         targetListIndex = 0;
-        currentMovestate = Movestate.Error;
+        currentMovestate = Movestate.Waiting;
 	}
 
     public void SetDestination(Vector3 worldPoint)
     {
+        Destination = worldPoint;
         currentMovestate = Movestate.Calculating;
-        SetPath(pathfinder.PathFind(transform.position, worldPoint));
+        if (Vector3.Distance(transform.position, worldPoint) < fudgeDistance)
+        {
+            currentMovestate = Movestate.Finished;
+            targetListIndex = 0;
 
+        }
+        else
+        {
+            SetPath(pathfinder.PathFind(transform.position, worldPoint));
+        }
     }
 
     //set path validates the path, to make sure it makes sence then sets it to 
@@ -54,6 +63,11 @@ public class PathMovement : MonoBehaviour {
     void SetPath(List<Node> targetlist)
     {
         currentMovestate = Movestate.TargetGiven;
+        if (pathfinder.NoSolution == true)
+        {
+            currentMovestate = Movestate.Error;
+
+        }
         if (targetlist.Count <= 0)
         {
             currentMovestate = Movestate.Error;
@@ -82,20 +96,25 @@ public class PathMovement : MonoBehaviour {
         //if we have a path, we move our transfrom towards the taget at a speed. else, we either increment 
         //the targetListIndex to the next target node, or we are finished, and awaiting orders.  this is only 
         //called once we have a valid path passed to us from the setpath function
-        if (currentMovestate != Movestate.Error || currentMovestate != Movestate.Finished)
+        if (currentMovestate == Movestate.TargetGiven)
         {
-
+       
+    
+          
             distance = Vector3.Distance(transform.position, targetNodeList[targetListIndex].location.position);
             if (distance > fudgeDistance)
             {
-                float step = movespeed * Time.deltaTime;
-                Vector3 mov = Vector3.MoveTowards(transform.position, targetNodeList[targetListIndex].location.position, step);
-                transform.position = mov;
+                if (targetListIndex < targetNodeList.Count-1)
+                {
+                    float step = movespeed * Time.deltaTime;
+                    Vector3 mov = Vector3.MoveTowards(transform.position, targetNodeList[targetListIndex].location.position, step);
+                    transform.position = mov;
+                }
 
             }
             else
             {
-                if (targetListIndex >= (targetNodeList.Count - 1))
+                if (targetListIndex >= (targetNodeList.Count))
                 {
                     currentMovestate = Movestate.Finished;
                     targetListIndex = 0;
@@ -105,9 +124,9 @@ public class PathMovement : MonoBehaviour {
                     targetListIndex += 1;
                 }
             }
+            
         }
 
-        
 		
 	}
 }
